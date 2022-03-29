@@ -1,6 +1,6 @@
 [submodule "frontend"]
 	path = frontend
-	url = https://github.com/ferromarket/frontend.git
+	url = git@github.com:ferromarket/frontend.git
 [submodule "backend"]
 	path = backend
-	url = https://github.com/ferromarket/backend.git
+	url = git@github.com:ferromarket/backend.git
