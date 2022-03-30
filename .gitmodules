@@ -1,6 +1,8 @@
 [submodule "frontend"]
 	path = frontend
 	url = git@github.com:ferromarket/frontend.git
+	branch = master
 [submodule "backend"]
 	path = backend
 	url = git@github.com:ferromarket/backend.git
+	branch = master
