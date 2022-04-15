@@ -78,6 +78,13 @@ services:
     labels:
       - "com.centurylinklabs.watchtower.scope=${WATCHTOWER_SCOPE}"
 
+  swagger:
+    image: swaggerapi/swagger-ui:v4.10.3
+    volumes:
+      - ./swagger.json:/app/swagger.json
+    networks:
+      - network
+
   watchtower:
     image: containrrr/watchtower:1.4.0
     volumes:
