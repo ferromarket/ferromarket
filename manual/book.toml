@@ -1,0 +1,11 @@
+[book]
+title = "FerroMarket"
+description = "Description here"
+authors = ["Christopher Cromer", "Javier Gonzalez Reyes", "Cristian Lagos Rodriguez", "John Valdebenito Sharp", "Nicolás Adasme Arroyo", "Nicolás Vasquez Eyzaguirre"]
+language = "es"
+multilingual = false
+src = "src"
+
+[output.html]
+site-url = "/manual/"
+#cname = "ferromarket.cromer.cl"
