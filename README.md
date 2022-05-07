@@ -1,5 +1,15 @@
 # ferromarket
 
+## Estado
+
+### Frontend
+
+[![ci](https://github.com/ferromarket/frontend/actions/workflows/main.yml/badge.svg?event=push)](https://github.com/ferromarket/frontend/actions/workflows/main.yml)
+
+### Backend
+
+[![ci](https://github.com/ferromarket/backend/actions/workflows/main.yml/badge.svg?event=push)](https://github.com/ferromarket/backend/actions/workflows/main.yml)
+
 ## Configure system
 ```
 cp .env.example .env
