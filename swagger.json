@@ -1,15 +1,15 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "This is the FerroMarket api.",
+    "description": "Esto es el API publico de FerroMarket",
     "version": "1.0.0",
     "title": "FerroMarket"
   },
   "basePath": "/api",
   "tags": [
     {
-      "name": "hello",
-      "description": "A hello world example"
+      "name": "ferreteria",
+      "description": "Los ferreterías del FerroMarket."
     }
   ],
   "schemes": [
@@ -17,48 +17,168 @@
     "http"
   ],
   "paths": {
-    "/hello/{name}": {
+    "/ferreteria": {
+      "post": {
+        "tags": [
+          "ferreteria"
+        ],
+        "summary": "Agregar una ferretería nueva.",
+        "description": "Agregar una ferretería nueva.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "operación exitoso"
+          }
+        }
+      },
       "get": {
         "tags": [
-          "hello"
+          "ferreteria"
         ],
-        "summary": "Get hello message with name",
-        "description": "Returns a message saying hello to the name",
-        "operationId": "getHelloWithName",
+        "summary": "Mostrar un listado de todos los ferreterías.",
+        "description": "Retorna un listado de tipo ferretería.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "operación exitoso",
+            "schema": {
+              "$ref": "#/definitions/ferreterias"
+            }
+          }
+        }
+      }
+    },
+    "/ferreteria/{id}": {
+      "get": {
+        "tags": [
+          "ferreteria"
+        ],
+        "summary": "Mostrar una ferretería especifico.",
+        "description": "Retorna una ferretería especifico.",
         "produces": [
           "application/json"
         ],
         "parameters": [
           {
-            "name": "name",
+            "name": "id",
             "in": "path",
-            "description": "Name of the person to put in the message",
+            "description": "El ID de la ferretería a retornar.",
             "required": true,
-            "type": "string"
+            "type": "integer"
           }
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "operación exitoso",
             "schema": {
-              "$ref": "#/definitions/Message"
+              "$ref": "#/definitions/ferreteria"
             }
-          },
-          "400": {
-            "description": "Invalid name supplied"
-          },
-          "404": {
-            "description": "Name not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ferreteria"
+        ],
+        "summary": "Modificar una ferretería.",
+        "description": "Modificar una ferretería.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "El ID de la ferretería a modificar.",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operación exitoso",
+            "schema": {
+              "$ref": "#/definitions/ferreteria"
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "ferreteria"
+        ],
+        "summary": "Modificar una ferretería.",
+        "description": "Modificar una ferretería.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "El ID de la ferretería a modificar.",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operación exitoso",
+            "schema": {
+              "$ref": "#/definitions/ferreteria"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ferreteria"
+        ],
+        "summary": "Elimniar una ferretería.",
+        "description": "Eliminar una ferretería.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "El ID de la ferretería a eliminar.",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operación exitoso",
+            "schema": {
+              "$ref": "#/definitions/ferreteria"
+            }
           }
         }
       }
     }
   },
   "definitions": {
-    "Message": {
+    "ferreterias": {
       "type": "object",
       "properties": {
-        "Message": {
+        "ferreterias": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ferreteria"
+          }
+        }
+      }
+    },
+    "ferreteria": {
+      "type": "object",
+      "properties": {
+        "name": {
           "type": "string"
         }
       }
