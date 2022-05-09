@@ -36,18 +36,6 @@ services:
     ports:
       - "3050:80"
 
-  phpmyadmin:
-    image: phpmyadmin:5.0
-    restart: on-failure
-    networks:
-      - network
-    ports:
-      - 8000:80
-    depends_on:
-      - database
-    environment:
-      PMA_HOST: database
-
   mdbook:
     image: peaceiris/mdbook:v0.4.18
     restart: on-failure
