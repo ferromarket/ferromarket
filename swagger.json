@@ -27,9 +27,26 @@
         "produces": [
           "application/json"
         ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "La ferretería a agregar.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ferreteria"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "operación exitoso"
+          },
+          "400": {
+            "description": "operación falló",
+            "schema": {
+              "$ref": "#/definitions/error_message"
+            }
           }
         }
       },
@@ -138,7 +155,7 @@
         "tags": [
           "ferreteria"
         ],
-        "summary": "Elimniar una ferretería.",
+        "summary": "Eliminar una ferretería.",
         "description": "Eliminar una ferretería.",
         "produces": [
           "application/json"
@@ -164,6 +181,14 @@
     }
   },
   "definitions": {
+    "error_message": {
+      "type": "object",
+      "properties": {
+        "ErrorMessage": {
+          "type": "string"
+        }
+      }
+    },
     "ferreterias": {
       "type": "object",
       "properties": {
@@ -178,7 +203,16 @@
     "ferreteria": {
       "type": "object",
       "properties": {
-        "name": {
+        "Nombre": {
+          "type": "string"
+        },
+        "ComunaID": {
+          "type": "integer"
+        },
+        "Direccion": {
+          "type": "string"
+        },
+        "Descripcion": {
           "type": "string"
         }
       }
