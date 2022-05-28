@@ -53,7 +53,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/ferreterias": {
       "get": {
         "tags": [
           "ferreteria"
