@@ -44,7 +44,7 @@
         ],
         "responses": {
           "200": {
-            "description": "operación exitoso"
+            "description": "operación exitosa"
           },
           "400": {
             "description": "operación falló",
@@ -60,16 +60,22 @@
         "tags": [
           "ferreteria"
         ],
-        "summary": "Mostrar un listado de todos los ferreterías.",
-        "description": "Retorna un listado de tipo ferretería.",
+        "summary": "Mostrar una lista de todas las ferreterías.",
+        "description": "Retorna una lista de tipo ferretería.",
         "produces": [
           "application/json"
         ],
         "responses": {
           "200": {
-            "description": "operación exitoso",
+            "description": "operación exitosa",
             "schema": {
               "$ref": "#/definitions/ferreterias"
+            }
+          },
+          "400": {
+            "description": "operación falló",
+            "schema": {
+              "$ref": "#/definitions/error_message"
             }
           }
         }
@@ -80,8 +86,8 @@
         "tags": [
           "ferreteria"
         ],
-        "summary": "Mostrar una ferretería especifico.",
-        "description": "Retorna una ferretería especifico.",
+        "summary": "Mostrar una ferretería especifica.",
+        "description": "Retorna una ferretería especifica.",
         "produces": [
           "application/json"
         ],
@@ -96,10 +102,19 @@
         ],
         "responses": {
           "200": {
-            "description": "operación exitoso",
+            "description": "operación exitosa",
             "schema": {
               "$ref": "#/definitions/ferreteria"
             }
+          },
+          "400": {
+            "description": "operación falló",
+            "schema": {
+              "$ref": "#/definitions/error_message"
+            }
+          },
+          "404": {
+            "description": "no encontrada"
           }
         }
       },
@@ -119,14 +134,29 @@
             "description": "El ID de la ferretería a modificar.",
             "required": true,
             "type": "integer"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "La ferretería a agregar.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ferreteria"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "operación exitoso",
+            "description": "operación exitosa"
+          },
+          "400": {
+            "description": "operación falló",
             "schema": {
-              "$ref": "#/definitions/ferreteria"
+              "$ref": "#/definitions/error_message"
             }
+          },
+          "404": {
+            "description": "no encontrada"
           }
         }
       },
@@ -146,14 +176,29 @@
             "description": "El ID de la ferretería a modificar.",
             "required": true,
             "type": "integer"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "La ferretería a agregar.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ferreteria"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "operación exitoso",
+            "description": "operación exitosa"
+          },
+          "400": {
+            "description": "operación falló",
             "schema": {
-              "$ref": "#/definitions/ferreteria"
+              "$ref": "#/definitions/error_message"
             }
+          },
+          "404": {
+            "description": "no encontrada"
           }
         }
       },
@@ -177,10 +222,16 @@
         ],
         "responses": {
           "200": {
-            "description": "operación exitoso",
+            "description": "operación exitosa"
+          },
+          "400": {
+            "description": "operación falló",
             "schema": {
-              "$ref": "#/definitions/ferreteria"
+              "$ref": "#/definitions/error_message"
             }
+          },
+          "404": {
+            "description": "no encontrada"
           }
         }
       }
