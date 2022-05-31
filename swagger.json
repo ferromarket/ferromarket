@@ -44,7 +44,7 @@
         ],
         "responses": {
           "200": {
-            "description": "operación exitoso"
+            "description": "operación exitosa"
           },
           "400": {
             "description": "operación falló",
@@ -60,16 +60,22 @@
         "tags": [
           "ferreteria"
         ],
-        "summary": "Mostrar un listado de todos los ferreterías.",
-        "description": "Retorna un listado de tipo ferretería.",
+        "summary": "Mostrar una lista de todas las ferreterías.",
+        "description": "Retorna una lista de tipo ferretería.",
         "produces": [
           "application/json"
         ],
         "responses": {
           "200": {
-            "description": "operación exitoso",
+            "description": "operación exitosa",
             "schema": {
               "$ref": "#/definitions/ferreterias"
+            }
+          },
+          "400": {
+            "description": "operación falló",
+            "schema": {
+              "$ref": "#/definitions/error_message"
             }
           }
         }
@@ -80,8 +86,8 @@
         "tags": [
           "ferreteria"
         ],
-        "summary": "Mostrar una ferretería especifico.",
-        "description": "Retorna una ferretería especifico.",
+        "summary": "Mostrar una ferretería especifica.",
+        "description": "Retorna una ferretería especifica.",
         "produces": [
           "application/json"
         ],
@@ -96,10 +102,19 @@
         ],
         "responses": {
           "200": {
-            "description": "operación exitoso",
+            "description": "operación exitosa",
             "schema": {
               "$ref": "#/definitions/ferreteria"
             }
+          },
+          "400": {
+            "description": "operación falló",
+            "schema": {
+              "$ref": "#/definitions/error_message"
+            }
+          },
+          "404": {
+            "description": "no encontrada"
           }
         }
       },
@@ -119,14 +134,29 @@
             "description": "El ID de la ferretería a modificar.",
             "required": true,
             "type": "integer"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "La ferretería a agregar.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ferreteria"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "operación exitoso",
+            "description": "operación exitosa"
+          },
+          "400": {
+            "description": "operación falló",
             "schema": {
-              "$ref": "#/definitions/ferreteria"
+              "$ref": "#/definitions/error_message"
             }
+          },
+          "404": {
+            "description": "no encontrada"
           }
         }
       },
@@ -146,14 +176,29 @@
             "description": "El ID de la ferretería a modificar.",
             "required": true,
             "type": "integer"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "La ferretería a agregar.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ferreteria"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "operación exitoso",
+            "description": "operación exitosa"
+          },
+          "400": {
+            "description": "operación falló",
             "schema": {
-              "$ref": "#/definitions/ferreteria"
+              "$ref": "#/definitions/error_message"
             }
+          },
+          "404": {
+            "description": "no encontrada"
           }
         }
       },
@@ -177,9 +222,179 @@
         ],
         "responses": {
           "200": {
-            "description": "operación exitoso",
+            "description": "operación exitosa"
+          },
+          "400": {
+            "description": "operación falló",
             "schema": {
-              "$ref": "#/definitions/ferreteria"
+              "$ref": "#/definitions/error_message"
+            }
+          },
+          "404": {
+            "description": "no encontrada"
+          }
+        }
+      }
+    },
+    "/repartidor": {
+      "post": {
+        "tags": [
+          "repartidor"
+        ],
+        "summary": "Agregar un repartidor nuevo.",
+        "description": "Agregar un repartidor nuevo.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "El repartidor a agregar.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/repartidor"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operación exitosa"
+          },
+          "400": {
+            "description": "operación falló",
+            "schema": {
+              "$ref": "#/definitions/error_message"
+            }
+          }
+        }
+      }
+    },
+    "/repartidores": {
+      "get": {
+        "tags": [
+          "repartidor"
+        ],
+        "summary": "Mostrar un listado de todos los repartidores.",
+        "description": "Retorna un listado de tipo reapartidor.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "operación exitosa",
+            "schema": {
+              "$ref": "#/definitions/repartidores"
+            }
+          }
+        }
+      }
+    },
+    "/repartidor/{id}": {
+      "get": {
+        "tags": [
+          "repartidor"
+        ],
+        "summary": "Mostrar una repartidor en especifico.",
+        "description": "Retorna una repartidor en especifico.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "El ID de repartidor a retornar.",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operación exitosa",
+            "schema": {
+              "$ref": "#/definitions/repartidor"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "repartidor"
+        ],
+        "summary": "Modificar un repartidor .",
+        "description": "Modificar un repartidor .",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "El ID de repartidor a modificar.",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operación exitosa",
+            "schema": {
+              "$ref": "#/definitions/repartidor"
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "repartidor"
+        ],
+        "summary": "Modificar un repartidor.",
+        "description": "Modificar un repartidor.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "El ID de repartidor a modificar.",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operación exitosa",
+            "schema": {
+              "$ref": "#/definitions/repartidor"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "repartidor"
+        ],
+        "summary": "Eliminar un repartidor.",
+        "description": "Eliminar un repartidor.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "El ID del repartidor a eliminar.",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operación exitosa",
+            "schema": {
+              "$ref": "#/definitions/repartidor"
             }
           }
         }
