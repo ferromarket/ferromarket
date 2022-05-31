@@ -399,7 +399,7 @@
           }
         }
       }
-    },
+    }
   },
   "definitions": {
     "error_message": {
@@ -411,14 +411,9 @@
       }
     },
     "ferreterias": {
-      "type": "object",
-      "properties": {
-        "ferreterias": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ferreteria"
-          }
-        }
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ferreteria"
       }
     },
     "ferreteria": {
