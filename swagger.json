@@ -334,6 +334,15 @@
             "description": "El ID de repartidor a modificar.",
             "required": true,
             "type": "integer"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "El repartidor a agregar.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/repartidor"
+            }
           }
         ],
         "responses": {
@@ -361,6 +370,15 @@
             "description": "El ID de repartidor a modificar.",
             "required": true,
             "type": "integer"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "El repartidor a agregar.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/repartidor"
+            }
           }
         ],
         "responses": {
@@ -434,14 +452,9 @@
       }
     },
     "repartidores": {
-      "type": "object",
-      "properties": {
-        "repartidor": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/repartidor"
-          }
-        }
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/repartidor"
       }
     },
     "repartidor": {
