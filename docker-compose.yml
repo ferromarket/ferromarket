@@ -52,25 +52,25 @@ services:
       - '0.0.0.0'
 
   frontend:
-    image: ccromer/frontend:master
+    #image: ccromer/frontend:master
     restart: on-failure
     stdin_open: true
     environment:
       - CHOKIDAR_USEPOLLING=true
-    #build:
-    #  dockerfile: Dockerfile
-    #  context: ./frontend
+    build:
+      dockerfile: Dockerfile
+      context: ./frontend
     networks:
       - network
     labels:
       - "com.centurylinklabs.watchtower.scope=${WATCHTOWER_SCOPE}"
 
   backend:
-    image: ccromer/backend:master
+    #image: ccromer/backend:master
     restart: on-failure
-    #build:
-    #  dockerfile: Dockerfile
-    #  context: "./backend"
+    build:
+      dockerfile: Dockerfile
+      context: "./backend"
     depends_on:
       - database
     networks:
