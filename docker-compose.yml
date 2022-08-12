@@ -36,21 +36,6 @@ services:
     ports:
       - "3050:80"
 
-  mdbook:
-    image: peaceiris/mdbook:v0.4.21
-    restart: on-failure
-    stdin_open: true
-    tty: true
-    volumes:
-      - "./manual/src:/book/src"
-      - "./manual/book.toml:/book/book.toml"
-    networks:
-      - network
-    command:
-      - serve
-      - --hostname
-      - '0.0.0.0'
-
   frontend:
     #image: ccromer/frontend:master
     restart: on-failure
